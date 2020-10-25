@@ -1,6 +1,7 @@
 void intro() {
 
-
+win.pause();
+win.rewind();
   background(0);
   fill (0, 255, 0);
   stroke(0);
@@ -39,7 +40,19 @@ void intro() {
   if (x < 80 ||x > 730 ) {
     vx1 = vx1 * -1;
   }
+  if (x < 80 ) {
+    pong.rewind();
+    pong.play();
+ 
 }
+
+  if (x > 730 ) {
+    pong.rewind();
+    pong.play();
+  }
+}
+
+
 
 
 
@@ -47,10 +60,14 @@ void introClicks() {
   if (mouseX > 150 && mouseX < 350 && mouseY > 420 && mouseY <520) {
     mode = GAME;
     AI =true;
+    pong.rewind();
+    pong.play();
   }
 
   if (mouseX > 450 && mouseX < 650 && mouseY > 420 && mouseY <520) {
     mode = GAME;
     AI = false;
+    pong.rewind();
+    pong.play();
   }
 }

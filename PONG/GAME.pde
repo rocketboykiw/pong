@@ -18,11 +18,11 @@ void game() {
     if (downkey == true) righty = righty +5;
   } else {
 
-    if (ballx > 400) {
-      if (bally > righty) { 
+    if (x > 400) {
+      if (y > righty) { 
         righty = righty+5;
       }
-      if (bally <  righty) {
+      if (y <  righty) {
         righty = righty-5;
       }
     }
@@ -54,12 +54,16 @@ void game() {
 
   //ball bounce
   if (dist(leftx, lefty, x, y) <= leftd/2 +d/2) {
-    vx=(x-leftx)/16;
-    vy=(y-lefty)/16;
+    vx=(x-leftx)/10;
+    vy=(y-lefty)/10;
+    pong.rewind();
+    pong.play();
   }
   if (dist(rightx, righty, x, y) <= rightd/2 +d/2) {
-    vx=(x-rightx)/13;
-    vy=(y-righty)/13;
+    vx=(x-rightx)/10;
+    vy=(y-righty)/10;
+    pong.rewind();
+    pong.play();
   }
   //score
   textSize(50);
@@ -73,6 +77,8 @@ void game() {
     x= width/2;
     y= height/2;
     timer =100;
+    dong.rewind(); 
+    dong.play();
   }
 
   if (x>width) {
@@ -80,6 +86,8 @@ void game() {
     x= width/2;
     y= height/2;
     timer = 100;
+    dong.rewind(); 
+    dong.play();
   }
 
   //wall

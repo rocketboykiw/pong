@@ -1,3 +1,10 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 //pong!
 //jon boykiw
 //1.1
@@ -20,6 +27,11 @@ boolean AI;
 //keyboard variables
 boolean wkey,skey,upkey,downkey;
 
+//sound
+Minim minim;
+AudioPlayer pong,dong,win;
+
+
 //target variables
 float x,y,d;
 float vx,vy,vx1,vx2;
@@ -33,11 +45,11 @@ size (800,600);
 //initalize paddles
 leftx = 0;
 lefty = height/2;
-leftd = 200;
+leftd = 150;
 
 rightx =  width;
 righty = height/2;
-rightd = 200;
+rightd = 150;
 
 //initalize ball
 rscore =0;
@@ -47,14 +59,20 @@ id = 20;
 x = width/2;
 y = height/2;
 d = 50;
-vx = 3;
-vy = 3;
+vx = 6;
+vy = 6;
 vx1 =3;
 
 //initalize keyboard
 wkey = skey = upkey = downkey = false;
 
 
+
+//minim
+minim = new Minim(this);
+pong = minim.loadFile("pong.wav");
+dong = minim.loadFile("dong.wav");
+win = minim.loadFile("win.mp3");
 }
 
 void draw(){
