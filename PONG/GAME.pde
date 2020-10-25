@@ -17,14 +17,16 @@ void game() {
     if (upkey ==true) righty = righty - 5;
     if (downkey == true) righty = righty +5;
   } else {
-    if (bally > righty) { 
-      righty = righty+5;
-    }
-    if (bally <  righty) {
-      righty = righty-5;
+
+    if (ballx > 400) {
+      if (bally > righty) { 
+        righty = righty+5;
+      }
+      if (bally <  righty) {
+        righty = righty-5;
+      }
     }
   }
-
 
 
   if (lefty < 150) {
